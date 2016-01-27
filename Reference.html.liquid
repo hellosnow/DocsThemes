@@ -7,6 +7,8 @@
     <meta name="ms.pagetype" content="reference" />
     <meta name="toc" content="{{ page.toc_rel }}" />
     <meta name="breadcrumb" content="{{ page.breadcrumb_path }}" />
+    <meta name="ms.locale" content="{{ page['ms.locale'] }}" />
+    <meta name="ms.assetid" content="{{ page['ms.assetid'] }}" />
     <title>{{ page.title }}</title>
     {% style _themes/css/reference.css %}
     {% style _themes/css/hopscotch.css %}
@@ -15,6 +17,7 @@
     {% js _themes/javascript/docs.js %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script src="https://openfeedback.blob.core.windows.net/openfeedback/openfeedback.js"></script>
   </head>
   <body>
     <nav id="common-nav-placeholder" ms.pgarea="header">
@@ -100,6 +103,8 @@
       {{ content }}
       </article>
     </div>
+
+    <div id="openFeedbackContainer" style="z-index: 220; position: absolute; bottom: 0; left: 0; right: 0;"></div>
 
     <script>
       $(document).ready(function() {
@@ -226,5 +231,6 @@
       });
     </script>
     {% js _themes/javascript/insight.js %}
+    {% js _themes/javascript/rating.js %}
   </body>
 </html>

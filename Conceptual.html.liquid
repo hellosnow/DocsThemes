@@ -7,11 +7,14 @@
     <meta name="ms.pagetype" content="conceptual" />
     <meta name="toc" content="{{ page.toc_rel }}" />
     <meta name="breadcrumb" content="{{ page.breadcrumb_path }}" />
+    <meta name="ms.locale" content="{{ page['ms.locale'] }}" />
+    <meta name="ms.assetid" content="{{ page['ms.assetid'] }}" />
     <title>{{ page.title }}</title>
     {% style _themes/css/conceptual.css %}
     {% js _themes/javascript/jquery-2.1.4.min.js %}
     {% js _themes/javascript/docs.js %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://openfeedback.blob.core.windows.net/openfeedback/openfeedback.js"></script>
   </head>
   <body>
     <header id="header" ms.pgarea="header">
@@ -105,6 +108,8 @@
       </article>
     </div>
 
+    <div id="openFeedbackContainer" style="z-index: 220; position: relative; display: block;"></div>
+
     <footer id="footer" ms.pgarea="footer">
       <div class="container">
         <a href="http://www.microsoft.com/" class="logo">{% img _themes/images/logo-ms.png Microsoft %}</a>
@@ -186,4 +191,5 @@
       });
     </script>
     {% js _themes/javascript/insight.js %}
+    {% js _themes/javascript/rating.js %}
 </body></html>
