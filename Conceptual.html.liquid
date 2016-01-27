@@ -9,6 +9,7 @@
     <meta name="breadcrumb" content="{{ page.breadcrumb_path }}" />
     <meta name="ms.locale" content="{{ page['ms.locale'] }}" />
     <meta name="ms.assetid" content="{{ page['ms.assetid'] }}" />
+    <meta name="ms.sitename" content="DOCS" />
     <title>{{ page.title }}</title>
     {% style _themes/css/conceptual.css %}
     {% js _themes/javascript/jquery-2.1.4.min.js %}
@@ -47,7 +48,6 @@
           </li>
           <li><a href="" class="button button-small"><span class="icon icon-comments"></span> Comments</a></li>
           <li><a href="{{ page.content_git_url }}" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
-          <li><a href="" class="button button-small"><span class="icon icon-feedback"></span> Feedback</a></li>
           <li><a href="#" class="button button-small sharebutton"><span class="icon icon-share"></span> Share</a></li>
           <div class="share-container">
             <li><a href="" class="share-twitter"><i class="fa fa-fw">&#xf099</i> Twitter</a></li>
@@ -108,7 +108,7 @@
       </article>
     </div>
 
-    <div id="openFeedbackContainer" style="z-index: 220; position: relative; display: block;"></div>
+    <div id="openFeedbackContainer" class="openfeedback-container"></div>
 
     <footer id="footer" ms.pgarea="footer">
       <div class="container">

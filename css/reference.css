@@ -2143,3 +2143,11 @@ body.theme-hot-dog {
     display: inline-block;
     height: 25px;
 }
+
+.openfeedback-container {
+    z-index: 220;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
