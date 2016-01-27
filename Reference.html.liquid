@@ -9,6 +9,7 @@
     <meta name="breadcrumb" content="{{ page.breadcrumb_path }}" />
     <meta name="ms.locale" content="{{ page['ms.locale'] }}" />
     <meta name="ms.assetid" content="{{ page['ms.assetid'] }}" />
+    <meta name="ms.sitename" content="DOCS" />
     <title>{{ page.title }}</title>
     {% style _themes/css/reference.css %}
     {% style _themes/css/hopscotch.css %}
@@ -41,7 +42,6 @@
             <li><a href="{{ page.content_git_url }}" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
             <li><a href="{{ page.source_url}}" class="button button-small"><i class="fa fa-fw">&#xf121</i> View Source</a></li>
             <li><a href="#" class="button button-small sharebutton"><span class="icon icon-share"></span> Share</a></li>
-            <li><a href="" class="button button-small"><span class="icon icon-feedback"></span> Feedback</a></li>
           </ul>
           <div class="menu-group" ms.cmpgrp="reference menu">
             {% if page.platforms != null %}
@@ -104,7 +104,7 @@
       </article>
     </div>
 
-    <div id="openFeedbackContainer" style="z-index: 220; position: absolute; bottom: 0; left: 0; right: 0;"></div>
+    <div id="openFeedbackContainer" class="openfeedback-container" style="position: absolute;"></div>
 
     <script>
       $(document).ready(function() {

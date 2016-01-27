@@ -2059,3 +2059,9 @@ h1 {
     display: inline-block;
     height: 25px;
 }
+
+.openfeedback-container {
+    z-index: 220;
+    position: relative;
+    display: block;
+}

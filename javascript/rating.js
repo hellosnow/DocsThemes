@@ -1,6 +1,7 @@
 // load openfeedback
 window.openFeedbackOptions = {
     containerElementId: "openFeedbackContainer",
-    documentMetaId: "ms.assetid",
-    localeMetaId: "ms.locale"
+    siteNameMetaName: "ms.sitename",
+    documentMetaName: "ms.assetid",
+    localeMetaName: "ms.locale"
 };
