@@ -192,6 +192,9 @@ function buildNav(type) {
   if($('header#interfaces').length) {
       navigation = buildCodeNav(navigation, 'interfaces', firstNav, secondNav);
     }
+  if($('header#structs').length) {
+       navigation = buildCodeNav(navigation, 'structs', firstNav, secondNav);
+     }
   if($('header#enums').length) {
       navigation = buildCodeNav(navigation, 'enums', firstNav, secondNav);
     }
@@ -234,7 +237,7 @@ function buildReferenceBreadcrumb() {
       namespace = item.toc_title;
       return breadcrumb;
     }
-    else{
+    else if(item.children != undefined) {
       item.children.forEach( function(child) {
           // class detected
           if(child.toc_title == title) {
