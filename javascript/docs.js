@@ -49,7 +49,7 @@ String.prototype.format = String.prototype.f = function() {
 };
 
 function getpageRelativePath(target) {
-    var toc = $("meta[name='toc']").attr('content');
+    var toc = $("meta[name='toc_rel']").attr('content');
     var currentFolder = toc.toLowerCase().split('toc.json')[0];
     return currentFolder + target;
 };
@@ -82,7 +82,7 @@ function getRelativePath(source, target) {
 // conceptual functions
 function buildTOC() {
     var result = '';
-    var tocloc = $("meta[name='toc']").attr('content');
+    var tocloc = $("meta[name='toc_rel']").attr('content');
     var json = getTOCJson(tocloc);
     json.forEach( function(item) {
         result += buildTOCblock(item);
@@ -227,7 +227,7 @@ function buildReferenceBreadcrumb() {
   var namespace = '';
   
   var bcTemplate = '<li><a href="{0}">{1}</a></li>';
-  var loc = $("meta[name='toc']").attr('content');
+  var loc = $("meta[name='toc_rel']").attr('content');
   var title = document.title.split(' ')[0];
   var json = getTOCJson(loc);
   json.forEach( function(item) {
@@ -261,9 +261,9 @@ function buildReferenceBreadcrumb() {
 function buildGlobalBreadcrumb(target, type) {
   var breadcrumb = '';
   var bcTemplate = '<li><a href="{0}">{1}</a></li>';
-  var loc = $("meta[name='breadcrumb']").attr('content');
+  var loc = $("meta[name='breadcrumb_path']").attr('content');
   if(type == 'conceptual') {
-    var tocloc = $("meta[name='toc']").attr('content');
+    var tocloc = $("meta[name='toc_rel']").attr('content');
     target = toAbsolutePath(tocloc).toLowerCase().split('toc.json')[0];
   }
   var json = getTOCJson(loc);
