@@ -210,6 +210,9 @@
           $('.share-container').hide();
         });
         $('.sharebutton').click(function() {
+          var pos = $('.sharebutton').position();
+          $('.share-container').css('left', pos.left);
+          $('.share-container').css('top', pos.top + 36);
           $('.share-container').toggle();
           return false;
         });
@@ -223,8 +226,8 @@
         // add BI tag for code block
         $('figure').attr('ms.cmpgrp' , 'code');
 
-        // add alert effect to TIP/NOTE/IMPORTANT/WARNING/MINIMAL
-        $('.TIP, .NOTE, .IMPORTANT, .WARNING, .MINIMAL').addClass('alert');
+        // add alert effect to TIP/NOTE/IMPORTANT/WARNING
+        $('.TIP, .NOTE, .IMPORTANT, .WARNING').addClass('alert');
       });
     </script>
     {% js _themes/javascript/insight.js %}

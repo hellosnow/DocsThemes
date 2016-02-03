@@ -86,7 +86,7 @@
             <span class="name"><a href="{{ page._op_gitContributorInformation.author.profile_url }}">{{ page._op_gitContributorInformation.author.display_name}}</a></span>
             <div class="meta">
               <time datetime="" class="date">{{ page._op_gitContributorInformation.update_at }}</time>
-              <time datetime="" class="reading-time">{{ page.wordCount | divided_by: 200 }} min</time>
+              <time datetime="" class="reading-time">{% if page.wordCount < 200 %}Less than 1{% else %}{{ page.wordCount | divided_by: 200 }}{% endif %} min</time>
               <ul class="contributors">
                 {% for contributor in page._op_gitContributorInformation.contributors %}
                 <li><a href="{{ contributor.profile_url }}"><img src="{{ contributor.profile_url }}.png" alt="{{ contributor.display_name }}" class="contributor-avatar"></a></li>
@@ -173,6 +173,9 @@
             $('.share-container').hide();
           });
           $('.sharebutton').click(function() {
+            var pos = $('.sharebutton').position();
+            $('.share-container').css('left', pos.left);
+            $('.share-container').css('top', pos.top + 36);
             $('.share-container').toggle();
             return false;
           });
@@ -183,8 +186,8 @@
             return false;
           });
 
-          // add alert effect to TIP/NOTE/IMPORTANT/WARNING/MINIMAL
-		  $('.TIP, .NOTE, .IMPORTANT, .WARNING, .MINIMAL').addClass('alert');
+          // add alert effect to TIP/NOTE/IMPORTANT/WARNING
+          $('.TIP, .NOTE, .IMPORTANT, .WARNING').addClass('alert');
       });
     </script>
     {% js _themes/javascript/insight.js %}
