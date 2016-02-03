@@ -1,4 +1,4 @@
-// windows.insight.versioncode = v20160127v3
+// windows.insight.versioncode = v20160203v3
 window.insight = window.insight || {};
 
 window.insight.debugConsoleLogEnabled = false;
@@ -23,7 +23,7 @@ window.insight.firePageFocusEvent = function(type) {
     window.insight.debugLog("stepped inside firePageFocusEvent function");
     var tArray = [];
     tArray.push("ms.focuseventtime", new Date().getTime());
-    tArray.push("ms.focusorblue", type);
+    tArray.push("ms.focusorblur", type);
     window.insight.processWEDCSCustomEventFromArray(tArray);
 };
 window.insight.setupPageFocusTracking = function() {
