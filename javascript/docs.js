@@ -116,7 +116,7 @@ function buildTOCblock(toc){
 // build mobile conceptual toc
 function buildMobileTOC() {
     var result = '';
-    var tocloc = $("meta[name='toc']").attr('content');
+    var tocloc = $("meta[name='toc_rel']").attr('content');
     var json = getTOCJson(tocloc);
     json.forEach( function(item) {
         result += buildMobileTOCblock(item, 1);
