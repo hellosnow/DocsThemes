@@ -113,6 +113,39 @@ function buildTOCblock(toc){
     return result;
 };
 
+// build mobile conceptual toc
+function buildMobileTOC() {
+    var result = '';
+    var tocloc = $("meta[name='toc']").attr('content');
+    var json = getTOCJson(tocloc);
+    json.forEach( function(item) {
+        result += buildMobileTOCblock(item, 1);
+    });
+    return result;
+};
+
+function buildMobileTOCblock(toc, level) {
+    var tocTemplate = '<option value="{0}">{1}</option>';
+    var currentTemplate = '<option value="{0}" selected>{1}</option>';
+    var href = '';
+    var result = '';
+    var indention = new Array(level).join('&nbsp;&nbsp;');
+    if(toc.href !== undefined) {
+        href = getpageRelativePath(toc.href) + '.html';
+    }
+    if(toc.toc_title === document.title) {
+        result = currentTemplate.format(href, indention + toc.toc_title);
+    }else {
+        result = tocTemplate.format(href, indention + toc.toc_title);
+    }
+    if (toc.children !== undefined) {
+        toc.children.forEach(function(child) {
+            result += buildMobileTOCblock(child, level+1);
+        });
+    }
+    return result;
+};
+
 // reference functions
 function contentFilter(platform, language) {
   // filter platform

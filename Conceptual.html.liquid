@@ -63,17 +63,8 @@
       </div>
       
       <div id="menu-nav" class="dropdown-container">
-        <div class="dropdown dropdown-full">
+        <div class="dropdown dropdown-full mobilenavi">
           <select>
-            <optgroup label="Introduction">
-              <option value="problems-azure-rms-solves">Problems Azure RMS Solves</option>
-              <option value="azure-rms-in-action">Azure RMS in Action</option>
-              <option value="how-azure-rms-works">How Azure RMS Works</option>
-            </optgroup>
-            <optgroup label="And...">
-              <option value="so">So</option>
-              <option value="on">On</option>
-            </optgroup>
           </select>
         </div>
       </div>
@@ -134,6 +125,12 @@
             $('#toc').contents().find('body').removeClass().addClass($(".menu-theme select").val());
           });
           
+          // mobile navi switching
+          $('.mobilenavi').change(function() {
+            var target = $('.mobilenavi select').val();
+            $(location).attr('href', target)
+          });
+          
           // In topic TOC
           var ToC = "<ul>";
           $("article h2").each(function() {
@@ -156,6 +153,10 @@
           // local TOC
           var toc = buildTOC();
           $('#sidebar').append(toc);
+          
+          var mobileToc = buildMobileTOC();
+          $('.mobilenavi > select').empty();
+          $('.mobilenavi > select').append(mobileToc);
           
           // breadcrumb
           var breadcrumb = buildGlobalBreadcrumb('', 'conceptual');
