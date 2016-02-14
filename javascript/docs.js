@@ -150,13 +150,16 @@ function buildMobileTOCblock(toc, level) {
 function contentFilter(platform, language) {
   // filter platform
   $('.list-clean').children().each( function() {
-    if($(this).attr('class') != undefined && $(this).attr('class').indexOf('platform') >= 0) {
-      $(this).hide();
+      if($(this).attr('class') != undefined && $(this).attr('class').indexOf('platform') >= 0) {
+          $(this).hide();
       }
   });
   $('li.' + platform).show();
   $('header#overview').find('span').hide();
-  $('.inheritance').find('code').hide();
+  // display None content to remain the area
+  if ($('.inheritance').find('code') != undefined && $('.inheritance').find('code').text() != 'None') {
+    $('.inheritance').find('code').hide();
+  }
   $('code[lang]').hide();
   $('code[class]').hide();
   $('.' + language).show();
@@ -397,8 +400,8 @@ function getTOCJson(jsonURL) {
             }
         });
         return json;
-  })();
-  return json;
+    })();
+    return json;
 }
 
 // auto expand when navigation
