@@ -1110,33 +1110,33 @@ table td,table th {
     color: #396f3a
 }
 
-.MINIMAL {
+.alert-minimal {
     border-color: rgba(0,0,0,0.05);
     background: #fff;
     color: #333
 }
 
-.theme-night .MINIMAL {
+.theme-night .alert-minimal {
     border-color: rgba(255,255,255,0.05);
     background: #1a1a1a;
     color: #fff
 }
 
-.theme-hot-dog .MINIMAL {
+.theme-hot-dog .alert-minimal {
     border-color: rgba(255,255,255,0.05);
     background: #cc1e00;
     color: #fff
 }
 
-.MINIMAL h5 {
+.alert-minimal h5 {
     color: #333
 }
 
-.theme-night .MINIMAL h5 {
+.theme-night .alert-minimal h5 {
     color: #fff
 }
 
-.theme-hot-dog .MINIMAL h5 {
+.theme-hot-dog .alert-minimal h5 {
     color: #fff
 }
 
@@ -1857,7 +1857,8 @@ h1 {
 }
 
 #social .icon {
-    padding-right: 0.2em
+    padding-right: 0.2em;
+    font-size: 0.7rem
 }
 
 #social ol {
