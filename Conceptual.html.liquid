@@ -70,10 +70,10 @@
         </div>
       </div>
 
-      <article id="main">
+      <div id="main">
         <h1>{{ page.title }}</h1>
         <div id="metadata" ms.cmpgrp="page info">
-          <a href="{{ page._op_gitContributorInformation.author.profile_url }}" class="avatar"><img src="{{ page._op_gitContributorInformation.author.profile_url }}.png" alt="Author Name"></a>
+          <a href="{{ page._op_gitContributorInformation.author.profile_url }}" class="avatar"><span class="author-name" style="background-image: url({{ page._op_gitContributorInformation.author.profile_url }}.png)" alt="Author Name"></span></a>
           <div class="info">
             <span class="name"><a href="{{ page._op_gitContributorInformation.author.profile_url }}">{{ page._op_gitContributorInformation.author.display_name}}</a></span>
             <div class="meta">
@@ -94,7 +94,7 @@
 
         {{ content }}
 
-      </article>
+      </div>
     </div>
 
     <div id="openFeedbackContainer" class="openfeedback-container"></div>
