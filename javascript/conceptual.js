@@ -25,7 +25,7 @@ $(function () {
 
     // In topic TOC
     var ToC = "<ul>";
-    $("article h2").each(function () {
+    $("#main h2").each(function () {
         el = $(this);
         title = el.text();
         link = "#" + el.attr("id");
