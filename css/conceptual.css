@@ -723,6 +723,15 @@ img,video {
     display: block
 }
 
+.author-name {
+    width: 2em;
+    height: 2em;
+    float: left;
+    display: block;
+    border-radius: 100%;
+    background-size: contain;
+}
+
 pre {
     border-radius: 2px;
     border-width: 1px;
@@ -863,6 +872,7 @@ ol li>ol {
 }
 
 table {
+    table-layout: fixed;
     width: 100%;
     max-width: 100%;
     font-size: 0.9em
@@ -1354,6 +1364,10 @@ body.theme-hot-dog {
     background-size: 100px 23px;
     background-repeat: no-repeat;
     color: transparent
+}
+
+#common-nav-placeholder h3::selection {
+    background: url(../images/logo-ms-dark.png);
 }
 
 #common-nav-placeholder h5 {
@@ -2001,7 +2015,10 @@ h1 {
 
 #metadata .contributor-avatar {
     width: 1em;
+    height: 1em;
     border-radius: 100%;
+    display: inline-block;
+    background-size: contain;
     line-height: 0;
     vertical-align: middle
 }
@@ -2065,4 +2082,8 @@ h1 {
     z-index: 220;
     position: relative;
     display: block;
+}
+
+.mobilenavi > select {
+    text-transform: capitalize;
 }

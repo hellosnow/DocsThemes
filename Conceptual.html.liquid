@@ -20,6 +20,7 @@
       <div id="common-nav-placeholder">
         <div class="container">
           <h3>Microsoft</h3>
+          <h5></h5>
         </div>
       </div>
       
@@ -54,7 +55,7 @@
         </ol>
 
         <div id="menu-expand">
-          <h6>+ Options</h6>
+          <h6><span id="menu-expand-icon">+ </span>Options</h6>
         </div>
       </aside>
       
@@ -69,10 +70,10 @@
         </div>
       </div>
 
-      <article id="main">
+      <div id="main">
         <h1>{{ page.title }}</h1>
         <div id="metadata" ms.cmpgrp="page info">
-          <a href="{{ page._op_gitContributorInformation.author.profile_url }}" class="avatar"><img src="{{ page._op_gitContributorInformation.author.profile_url }}.png" alt="Author Name"></a>
+          <a href="{{ page._op_gitContributorInformation.author.profile_url }}" class="avatar"><span class="author-name" style="background-image: url({{ page._op_gitContributorInformation.author.profile_url }}.png)" alt="Author Name"></span></a>
           <div class="info">
             <span class="name"><a href="{{ page._op_gitContributorInformation.author.profile_url }}">{{ page._op_gitContributorInformation.author.display_name}}</a></span>
             <div class="meta">
@@ -80,7 +81,7 @@
               <time datetime="" class="reading-time">{% if page.wordCount < 200 %}Less than 1{% else %}{{ page.wordCount | divided_by: 200 }}{% endif %} min</time>
               <ul class="contributors">
                 {% for contributor in page._op_gitContributorInformation.contributors %}
-                <li><a href="{{ contributor.profile_url }}"><img src="{{ contributor.profile_url }}.png" alt="{{ contributor.display_name }}" class="contributor-avatar"></a></li>
+                <li><a href="{{ contributor.profile_url }}"><span style="background-image: url({{ contributor.profile_url }}.png)" alt="{{ contributor.display_name }}" class="contributor-avatar"></span></a></li>
                 {% endfor %}
               </ul>
             </div>
@@ -93,7 +94,7 @@
 
         {{ content }}
 
-      </article>
+      </div>
     </div>
 
     <div id="openFeedbackContainer" class="openfeedback-container"></div>
@@ -122,88 +123,8 @@
             localeMetaName: "ms.locale"
         };
     </script>
-    
-    <script>
-      $(document).ready(function () {
-          // #menu-bar toggling
-          $( "#menu-expand" ).click(function() {
-            $( ".social-actions" ).slideToggle( "fast", function() {
-              // post-animation actions
-            });
-          });
-          
-          // theme switching
-          $( ".menu-theme" ).change(function() {
-            $("body").removeClass().addClass($(".menu-theme select").val());
-            $('#toc').contents().find('body').removeClass().addClass($(".menu-theme select").val());
-          });
-          
-          // mobile navi switching
-          $('.mobilenavi').change(function() {
-            var target = $('.mobilenavi select').val();
-            $(location).attr('href', target)
-          });
-          
-          // In topic TOC
-          var ToC = "<ul>";
-          $("article h2").each(function() {
-            el = $(this);
-            title = el.text();
-            link = "#" + el.attr("id");
-            newLine =
-            "<li>" +
-              "<a href='" + link + "'>" +
-                title +
-              "</a>" +
-            "</li>";
-        
-            ToC += newLine;
-          });
-          ToC += "</ul>";
-          
-          $("aside.toc").append(ToC);
-          
-          // local TOC
-          var toc = buildTOC();
-          $('#sidebar').append(toc);
-          
-          var mobileToc = buildMobileTOC();
-          $('.mobilenavi > select').empty();
-          $('.mobilenavi > select').append(mobileToc);
-          
-          // breadcrumb
-          var breadcrumb = buildGlobalBreadcrumb('', 'conceptual');
-          $('.breadcrumbs').append(breadcrumb);
-          
-          // build share url
-          var shareLink = location.origin + location.pathname;
-          var facebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareLink;
-          var twitterShareUrl = "https://twitter.com/intent/tweet?original_referer=" + shareLink + "&text=" + document.title + "&tw_p=tweetbutton&url=" + shareLink;
-          $(".share-facebook").attr("href", facebookShareUrl);
-          $(".share-twitter").attr("href", twitterShareUrl);
 
-          // share toggling
-          $('body').not('.share-container').click(function() {
-            $('.share-container').hide();
-          });
-          $('.sharebutton').click(function() {
-            var pos = $('.sharebutton').position();
-            $('.share-container').css('left', pos.left);
-            $('.share-container').css('top', pos.top + 36);
-            $('.share-container').toggle();
-            return false;
-          });
-          
-          // social share window control
-          $('.share-container > li > a').click( function() {
-          window.open(this.href, '',  'width=600,height=650');
-            return false;
-          });
-
-          // add alert effect to TIP/NOTE/IMPORTANT/WARNING
-          $('.TIP, .NOTE, .IMPORTANT, .WARNING').addClass('alert');
-      });
-    </script>
+    {% js _themes/javascript/conceptual.js %}
     {% js _themes/javascript/insight.js %}
     {% js _themes/javascript/rating.js %}
     <script src="https://openfeedback.blob.core.windows.net/commenting/comment.js"></script>
