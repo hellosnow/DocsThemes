@@ -81,7 +81,7 @@
               <time datetime="" class="reading-time">{% if page.wordCount < 200 %}Less than 1{% else %}{{ page.wordCount | divided_by: 200 }}{% endif %} min</time>
               <ul class="contributors">
                 {% for contributor in page._op_gitContributorInformation.contributors %}
-                <li><a href="{{ contributor.profile_url }}"><img src="{{ contributor.profile_url }}.png" alt="{{ contributor.display_name }}" class="contributor-avatar"></a></li>
+                <li><a href="{{ contributor.profile_url }}"><span style="background-image: url({{ contributor.profile_url }}.png)" alt="{{ contributor.display_name }}" class="contributor-avatar"></span></a></li>
                 {% endfor %}
               </ul>
             </div>

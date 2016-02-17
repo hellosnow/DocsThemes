@@ -725,11 +725,11 @@ img,video {
 
 .author-name {
     width: 2em;
-	height: 2em;
-	float: left;
-	display: block;
-	border-radius: 100%;
-	background-size: contain;
+    height: 2em;
+    float: left;
+    display: block;
+    border-radius: 100%;
+    background-size: contain;
 }
 
 pre {
@@ -2015,7 +2015,10 @@ h1 {
 
 #metadata .contributor-avatar {
     width: 1em;
+    height: 1em;
     border-radius: 100%;
+    display: inline-block;
+    background-size: contain;
     line-height: 0;
     vertical-align: middle
 }
