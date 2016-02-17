@@ -723,6 +723,15 @@ img,video {
     display: block
 }
 
+.author-name {
+    width: 2em;
+	height: 2em;
+	float: left;
+	display: block;
+	border-radius: 100%;
+	background-size: contain;
+}
+
 pre {
     border-radius: 2px;
     border-width: 1px;
