@@ -863,6 +863,7 @@ ol li>ol {
 }
 
 table {
+    table-layout: fixed;
     width: 100%;
     max-width: 100%;
     font-size: 0.9em
@@ -1354,6 +1355,10 @@ body.theme-hot-dog {
     background-size: 100px 23px;
     background-repeat: no-repeat;
     color: transparent
+}
+
+#common-nav-placeholder h3::selection {
+    background: url(../images/logo-ms-dark.png);
 }
 
 #common-nav-placeholder h5 {
@@ -2065,4 +2070,8 @@ h1 {
     z-index: 220;
     position: relative;
     display: block;
+}
+
+.mobilenavi > select {
+    text-transform: capitalize;
 }
