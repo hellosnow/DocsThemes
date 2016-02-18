@@ -11,9 +11,10 @@
     {% style _themes/css/conceptual.css %}
     {% js _themes/javascript/jquery-2.1.4.min.js %}
     {% js _themes/javascript/docs.js %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://openfeedback.blob.core.windows.net/openfeedback/openfeedback.js"></script>
-    <script src="https://cdn.livefyre.com/Livefyre.js"></script>
+    <script src="//cdn.livefyre.com/Livefyre.js"></script>
+    <script src="https://openfeedback.blob.core.windows.net/commenting/OpenComment.js"></script>
   </head>
   <body>
     <header id="header" ms.pgarea="header">
@@ -93,12 +94,13 @@
         </aside>
 
         {{ content }}
-
       </div>
     </div>
 
     <div id="openFeedbackContainer" class="openfeedback-container"></div>
-    <div id="comments-container" class="container"></div>
+    <div class="container">
+        <div id="comments-container"> </div>
+    </div>
     
     <footer id="footer" ms.pgarea="footer">
       <div class="container">
@@ -112,20 +114,8 @@
       </div>
     </footer>
 
-    <script>
-        //commenting configurations.
-        window.commentOptions = {
-            network: "microsoft-ssodemo.fyre.co",
-            siteId: "305985",
-            containerElementId: "comments-container",
-            documentIdMetaName: "ms.assetid",
-            sidenoteSelectors: "",
-            localeMetaName: "ms.locale"
-        };
-    </script>
-
     {% js _themes/javascript/conceptual.js %}
     {% js _themes/javascript/insight.js %}
     {% js _themes/javascript/rating.js %}
-    <script src="https://openfeedback.blob.core.windows.net/commenting/comment.js"></script>
+    {% js _themes/javascript/commenting.js %}
 </body></html>
